@@ -1,0 +1,99 @@
+{
+  "name": "react-utils",
+  "displayName": "React Utils",
+  "description": "A collection of react utils",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "react-utils.useCallbackWrap",
+        "title": "Wrap with useCallback"
+      },
+      {
+        "command": "react-utils.useMemoWrap",
+        "title": "Wrap with useMemo"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "react-utils.useCallbackWrap",
+        "key": "ctrl+shift+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "react-utils.useMemoWrap",
+        "key": "ctrl+shift+m",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "react-utils.useCallbackWrap",
+          "group": "navigation"
+        },
+        {
+          "when": "editorTextFocus",
+          "command": "react-utils.useMemoWrap",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CibiAananth/vsce-react-utils"
+  },
+  "author": {
+    "name": "Cibi Aananth",
+    "email": "cibiaananth@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/CibiAananth/vsce-react-utils",
+  "keywords": [
+    "react",
+    "hooks",
+    "useCallback",
+    "useMemo",
+    "vscode",
+    "extension",
+    "utils",
+    "react-utils",
+    "react-hooks",
+    "react-hooks-utils"
+  ]
+}
